@@ -6,6 +6,10 @@
   align-items: center;
   background: pink;
   border-bottom: 1px solid hotpink;
+  font-family: 'Original Surfer', cursive;
+  font-weight: bolder;
+  color: blueviolet;
+  font-size: 2rem;
 }
 
 .Header .logo {

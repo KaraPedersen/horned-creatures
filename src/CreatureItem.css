@@ -17,12 +17,19 @@
 }
 
 .CreatureItem img {
-  height: 100%;
+  height: 60%;
   width: 100%;
+  display: grid;
+  align-items: center;
+  justify-content: center;
   object-fit: contain;
 }
 
 .CreatureItem p {
   margin: 0;
-  font-size: .9rem;
+  font-size: 1.5rem;
+  display: grid;
+  align-items: flex-end;
+  font-weight: bolder;
+  color: blueviolet;
 }
