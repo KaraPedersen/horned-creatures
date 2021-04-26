@@ -4,7 +4,7 @@
   grid-template-columns: 50px 1fr;
   grid-gap: 20px;
   align-items: center;
-  background:white;
+  background: pink;
   border-bottom: 1px solid hotpink;
 }
 
