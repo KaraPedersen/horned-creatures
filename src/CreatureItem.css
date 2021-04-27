@@ -19,7 +19,7 @@
 .CreatureItem img {
   height: 60%;
   width: 100%;
-  display: grid;
+  
   align-items: center;
   justify-content: center;
   object-fit: contain;
