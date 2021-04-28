@@ -14,7 +14,7 @@
 width: 200px;
 height: 30px;
 flex-grow: 2;
-outline: o;
+outline: 0;
 }
 
 .CreatureSearch select {
