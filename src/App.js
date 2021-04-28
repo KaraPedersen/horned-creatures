@@ -1,9 +1,8 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import CreatureList from './CreatureList';
-import Counter from './Counter';
-import creatures from './creatures';
+import creatureData from './creatures';
 import CreatureSearch from './CreatureSearch';
 import './App.css';
 
@@ -18,19 +17,21 @@ class App extends Component {
     const nameRegex = new RegExp(titleFilter, 'i');
 
     const searchedData = creatureData
-      .filter(creature => {
-        return !nameFilter || cat.name.match(nameRegex);
+      .filter(creatureData => {
+        return !titleFilter || creatureData.title.match(nameRegex);
       })
-      .filter(cat => {
-        return !typeFilter || cat.type === typeFilter;
+      .filter(creatureData => {
+        return !typeFilter || creatureData.type === typeFilter;
       })
       .sort((a, b) => {
         if (a[sortField] < b[sortField]) return -1;
         if (a[sortField] > b[sortField]) return 1;
         return 0;
       });
+
     this.setState({ creatures: searchedData });
   }
+
   render() {
     const { creatures } = this.state;
 
@@ -39,9 +40,7 @@ class App extends Component {
 
         <Header />
 
-        <Counter />
-
-        <CreatureSearch types={creatureTypes} onSearch={this.handSearch} />
+        <CreatureSearch types={creatureTypes} onSearch={this.handleSearch} />
 
         <main>
           <CreatureList creatures={creatures} />
@@ -49,8 +48,7 @@ class App extends Component {
 
         <Footer />
 
-
-      </div >
+      </div>
     );
   }
 

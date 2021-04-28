@@ -1,17 +1,11 @@
 import { Component } from 'react';
 import './CreatureSearch.css';
-
-export default class creatureSearch extends Component {
+export default class CreatureSearch extends Component {
   state = {
     titleFilter: '',
     sortField: '',
-    typeFilter: '',
+    typeFilter: ''
   }
-
-  handleNameChange = ({ target }) => {
-    this.setState({ titleFilter: target.value });
-  }
-
   handleNameChange = ({ target }) => {
     this.setState({ titleFilter: target.value });
   }
@@ -19,11 +13,15 @@ export default class creatureSearch extends Component {
   handleSearchChange = ({ target }) => {
     this.setState({ sortField: target.value });
   }
+
+  handleTypeChange = ({ target }) => {
+    this.setState({ typeFilter: target.value });
+  }
+
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.onSearch(this.state);
   }
-
   componentDidUpdate(prevProp, prevState) {
     if (prevState !== this.state) {
       this.props.onSearch(this.state);
@@ -32,6 +30,7 @@ export default class creatureSearch extends Component {
 
   render() {
     const { titleFilter, sortField, typeFilter } = this.state;
+    const { types } = this.props;
 
     return (
       <form className="CreatureSearch" onSubmit={this.handleSubmit}>
@@ -41,21 +40,24 @@ export default class creatureSearch extends Component {
           value={titleFilter}
           onChange={this.handleNameChange}
         />
-
         <select
-          name="nameFilter"
-          value={typeFilter}
+          name="sortField"
+          value={sortField}
           onChange={this.handleSearchChange}
         >
-          <option value="">All
-          </option>
-
-          <option value="title">by title
-          </option>
-
-          <option value="horns">by horns
-          </option>
-
+          <option value="">sort...</option>
+          <option value="title">by title</option>
+          <option value="horns">by horns</option>
+        </select>
+        <select
+          name="typeFilter"
+          value={typeFilter}
+          onChange={this.handleTypeChange}
+        >
+          <option value="">All</option>
+          {types.map(type => (
+            <option key={type} value={type}>{type}</option>
+          ))}
         </select>
 
         <button>🔎</button>
@@ -63,5 +65,4 @@ export default class creatureSearch extends Component {
       </form>
     );
   }
-
 }
