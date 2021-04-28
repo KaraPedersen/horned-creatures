@@ -43,7 +43,7 @@ export default class creatureSearch extends Component {
         />
 
         <select
-          name="typeFilter"
+          name="nameFilter"
           value={typeFilter}
           onChange={this.handleSearchChange}
         >
