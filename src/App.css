@@ -8,5 +8,6 @@
 
 .App main {
   overflow: auto;
+  padding: 20px;
 }
 
