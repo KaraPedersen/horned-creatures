@@ -8,9 +8,12 @@ class CreatureItem extends Component {
 
     return (
       <li className="CreatureItem">
-        <h2>{creature.title}</h2>
+        <h2>{creature.name}</h2>
+        <h2>{creature.type}</h2>
+        {/* <img src={creature.url} alt={creature.name} /> */}
+        {/* <h2>{creature.title}</h2>
         <img src={creature.url} alt={creature.title} />
-        <p>Horns: {creature.horns}</p>
+        <p>Horns: {creature.horns}</p> */}
       </li>
     );
   }

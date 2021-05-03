@@ -11,7 +11,7 @@ class CreatureList extends Component {
     return (
       <ul className="CreatureList">
         {creatures.map(creature => (
-          <CreatureItem key={creature.title} creature={creature} />
+          <CreatureItem key={creature.name} creature={creature} />
         ))}
       </ul>
     );
